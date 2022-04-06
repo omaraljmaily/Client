@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mb-3">
+            <p class="h1 text-center">
+                <span style="margin-right: 20px;">SpeedTest</span>
+                <button id="st-start" *ngIf="!started" class="btn btn-outline-primary st-btn" (click)="startTest()">Start</button>
+                <button id="st-stop" *ngIf="started" class="btn btn-danger st-btn" (click)="stopTest()">Stop</button>
+            </p>
+            
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 st-block">
+            <rg-gauge-chart
+                [canvasWidth]="canvasWidth"
+                [needleValue]="downloadStatus"
+                [centralLabel]="centralLabel"
+                [options]="downloadOptions"
+                [name]="downloadName"
+                [bottomLabel]="downloadStatus.toString()+' Mbit/s'" >
+            </rg-gauge-chart>            
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 st-block">
+            <rg-gauge-chart
+                [canvasWidth]="canvasWidth"
+                [needleValue]="uploadStatus"
+                [centralLabel]="centralLabel"
+                [options]="uploadOptions"
+                [name]="uploadName"
+                [bottomLabel]="uploadStatus.toString()+' Mbit/s'" >
+            </rg-gauge-chart>  
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3 st-block">
+            <rg-gauge-chart
+            [canvasWidth]="canvasWidth"
+            [needleValue]="pingStatus"
+            [centralLabel]="centralLabel"
+            [options]="pingOptions"
+            [name]="pingName"
+            [bottomLabel]="pingStatus.toString()+' ms'" >
+        </rg-gauge-chart> 
+        </div>        
+    </div>
+  </div>
